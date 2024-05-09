@@ -1,10 +1,10 @@
 module.exports = async ({ core, context, fetch }, token) => {
-  const { Octokit } = require("@octokit/core")
+  const { Octokit } = require("@octokit/core");
   const octokit = new Octokit({ auth: token, request: { fetch: fetch } });
 
-  const owner = 'G-Research'
+  const owner = 'gr-oss-devops'
   const repo = 'charts'
-  const ref = 'master'
+  const ref = 'charts-token-imports'
   const workflow_name = 'Push'
   let version = context.payload.ref
   if (context.payload.workflow_run !== undefined) {
